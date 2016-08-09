@@ -1,0 +1,49 @@
+apply plugin: 'groovy'
+apply plugin: 'idea'
+apply plugin: 'maven'
+sourceCompatibility = 1.6
+repositories {
+    jcenter()
+    maven {
+        url uri("${rootDir}/../repo")
+    }
+    mavenCentral()
+}
+configurations {
+    provided
+}
+
+idea {
+    module {
+        scopes.PROVIDED.plus += [configurations.provided]
+    }
+}
+
+sourceSets {
+    main {
+        compileClasspath += configurations.provided
+    }
+}
+
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
+    compile "commons-io:commons-io:2.4"
+    compile 'commons-codec:commons-codec:1.6'
+    compile 'commons-lang:commons-lang:2.6'
+    compile 'org.javassist:javassist:3.20.0-GA'
+
+    def GRADLE_DEP_VERSION="2.0.0"
+    compile "com.android.tools.build:gradle:${GRADLE_DEP_VERSION}"
+    compile "com.android.tools.build:gradle-core:${GRADLE_DEP_VERSION}"
+    compile "com.android.tools.build:builder:${GRADLE_DEP_VERSION}"
+    compile "com.android.tools.build:manifest-merger:${GRADLE_DEP_VERSION}"
+
+}
+
+ext {
+    PUBLISH_GROUP_ID = 'com.vdian.dynamic'
+    PUBLISH_ARTIFACT_ID = 'ut'
+    PUBLISH_VERSION = '0.0.1'
+}
+
