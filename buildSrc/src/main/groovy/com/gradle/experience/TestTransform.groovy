@@ -51,7 +51,7 @@ class TestTransform extends Transform {
         boolean isIncremental = transformInvocation.isIncremental()
 
 
-        project.logger.error "context:${context}"
+        project.logger.error "context:${context.getLogging()} ${context.getTemporaryDir()} ${context.getPath()}"
         project.logger.error "inputs:${inputs}"
         project.logger.error "secondaryInputs:${secondaryInputs}"
         project.logger.error "referencedInputs:${referencedInputs}"

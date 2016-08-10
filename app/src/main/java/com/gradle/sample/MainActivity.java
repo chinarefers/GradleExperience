@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import com.vdian.dynamic.sample.R;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -18,13 +17,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         button = (Button) findViewById(R.id.btn);
         button.setOnClickListener(this);
-//        button.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View view) {
-//
-//            }
-//        });
+
     }
 
+    @Override
+    public void onClick(View v) {
+
+    }
 }
